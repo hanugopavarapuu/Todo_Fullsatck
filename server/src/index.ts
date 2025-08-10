@@ -15,6 +15,8 @@ const allowedOrigins = [
   'http://localhost:3000', // Alternative dev port
   'https://todo-fullsatck.vercel.app', // Your Vercel domain
   'https://todo-fullsatck.vercel.app/', // Your Vercel domain with trailing slash
+  'https://todo-fullsatck-k1a8apmh9-gopavarapupandu-gmailcoms-projects.vercel.app', // New Vercel domain
+  'https://todo-fullsatck-k1a8apmh9-gopavarapupandu-gmailcoms-projects.vercel.app/', // New Vercel domain with trailing slash
   process.env.FRONTEND_URL // Environment variable for production
 ].filter(Boolean);
 

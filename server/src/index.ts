@@ -15,8 +15,10 @@ const allowedOrigins = [
   'http://localhost:3000', // Alternative dev port
   'https://todo-fullsatck.vercel.app', // Your Vercel domain
   'https://todo-fullsatck.vercel.app/', // Your Vercel domain with trailing slash
-  'https://todo-fullsatck-k1a8apmh9-gopavarapupandu-gmailcoms-projects.vercel.app', // New Vercel domain
-  'https://todo-fullsatck-k1a8apmh9-gopavarapupandu-gmailcoms-projects.vercel.app/', // New Vercel domain with trailing slash
+  'https://todo-fullsatck-k1a8apmh9-gopavarapupandu-gmailcoms-projects.vercel.app', // Previous Vercel domain
+  'https://todo-fullsatck-k1a8apmh9-gopavarapupandu-gmailcoms-projects.vercel.app/', // Previous Vercel domain with trailing slash
+  'https://todo-fullsatck-gmtcdp6cu-gopavarapupandu-gmailcoms-projects.vercel.app', // Latest Vercel domain
+  'https://todo-fullsatck-gmtcdp6cu-gopavarapupandu-gmailcoms-projects.vercel.app/', // Latest Vercel domain with trailing slash
   process.env.FRONTEND_URL // Environment variable for production
 ].filter(Boolean);
 
@@ -24,6 +26,11 @@ app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
+    
+    // Allow any Vercel domain for this project
+    if (origin.includes('todo-fullsatck') && origin.includes('vercel.app')) {
+      return callback(null, true);
+    }
     
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);

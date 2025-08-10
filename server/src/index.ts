@@ -13,7 +13,8 @@ app.use(express.json());
 const allowedOrigins = [
   'http://localhost:5173', // Development
   'http://localhost:3000', // Alternative dev port
-  'https://your-frontend-domain.vercel.app', // Replace with your Vercel domain
+  'https://todo-fullsatck.vercel.app', // Your Vercel domain
+  'https://todo-fullsatck.vercel.app/', // Your Vercel domain with trailing slash
   process.env.FRONTEND_URL // Environment variable for production
 ].filter(Boolean);
 

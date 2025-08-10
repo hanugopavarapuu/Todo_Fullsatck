@@ -1,0 +1,412 @@
+/* Swiss Style Design System */
+:root {
+  /* Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border: #e0e0e0;
+  --accent: #000000;
+  --accent-hover: #333333;
+  --success: #28a745;
+  --danger: #dc3545;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border: #404040;
+  --accent: #ffffff;
+  --accent-hover: #e0e0e0;
+  --success: #4caf50;
+  --danger: #f44336;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 3rem 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/* Create Area */
+.create-area {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  background: var(--bg-primary);
+  padding: 3rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.create-area h2 {
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.create-area form {
+  display: grid;
+  gap: 2rem;
+}
+
+.create-area input,
+.create-area textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease;
+}
+
+.create-area input:focus,
+.create-area textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.create-area textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.create-area button {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  justify-self: start;
+}
+
+.create-area button:hover {
+  background: var(--accent-hover);
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Note Cards */
+.note {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.note:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.note h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.note p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+/* Edit Mode */
+.note input,
+.note textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.note input:focus,
+.note textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.note textarea {
+  min-height: 100px;
+  resize: vertical;
+  flex: 1;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.button-group button {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.button-group button:first-child {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+.button-group button:first-child:hover {
+  background: var(--accent-hover);
+}
+
+.button-group button:last-child {
+  background: var(--bg-primary);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.button-group button:last-child:hover {
+  background: var(--danger);
+  color: var(--bg-primary);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  background-color: var(--bg-primary);
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-content,
+  .main-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .notes-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content,
+  .main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .header {
+    padding: 1.5rem 0;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .main-content {
+    padding: 2rem 1rem;
+  }
+  
+  .create-area {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .notes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .note {
+    padding: 1.5rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .button-group button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content,
+  .main-content {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .create-area {
+    padding: 1.5rem;
+  }
+  
+  .note {
+    padding: 1rem;
+  }
+}

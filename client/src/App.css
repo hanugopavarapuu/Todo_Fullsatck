@@ -1,0 +1,317 @@
+/* Swiss Style Design System */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.header {
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  color: #000000;
+}
+
+/* Create Area */
+.create-area {
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  background: #fafafa;
+  padding: 3rem;
+  border: 1px solid #e0e0e0;
+}
+
+.create-area form {
+  display: grid;
+  gap: 2rem;
+}
+
+.create-area input,
+.create-area textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease;
+}
+
+.create-area input:focus,
+.create-area textarea:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.create-area textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.create-area button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  justify-self: start;
+}
+
+.create-area button:hover {
+  background: #333333;
+}
+
+/* Notes Grid */
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Note Cards */
+.note {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 2rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note:hover {
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.note h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.note p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333333;
+  margin-bottom: 2rem;
+}
+
+/* Edit Mode */
+.note input,
+.note textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.note input:focus,
+.note textarea:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.note textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.button-group button {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #d0d0d0;
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.button-group button:first-child {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.button-group button:first-child:hover {
+  background: #333333;
+}
+
+.button-group button:last-child {
+  background: #ffffff;
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.button-group button:last-child:hover {
+  background: #d32f2f;
+  color: #ffffff;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid #e0e0e0;
+  color: #666666;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .header {
+    padding: 2rem 0 1.5rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .create-area {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .notes-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .note {
+    padding: 1.5rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  .button-group button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .create-area {
+    padding: 1.5rem;
+  }
+  
+  .note {
+    padding: 1rem;
+  }
+}
+
+/* Loading and Error States */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: #666666;
+  font-size: 1.125rem;
+}
+
+.error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 1rem;
+  border: 1px solid #ffcdd2;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.note {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Stagger animation for notes */
+.note:nth-child(1) { animation-delay: 0.1s; }
+.note:nth-child(2) { animation-delay: 0.2s; }
+.note:nth-child(3) { animation-delay: 0.3s; }
+.note:nth-child(4) { animation-delay: 0.4s; }
+.note:nth-child(5) { animation-delay: 0.5s; }
+.note:nth-child(6) { animation-delay: 0.6s; }
